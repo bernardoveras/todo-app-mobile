@@ -1,6 +1,9 @@
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
-import 'package:todo_app/app/app_widget.dart';
+import 'package:todo_app/src/app_widget.dart';
+import 'package:todo_app/src/presentation/login/login_module.dart';
+import 'common/route.dart';
+import 'presentation/home/home_module.dart';
 
 class AppModule extends MainModule {
   @override
@@ -8,7 +11,8 @@ class AppModule extends MainModule {
 
   @override
   List<ModularRouter> get routers => [
-        // ModularRouter(Modular.initialRoute, module: HomeModule()),
+        ModularRouter(AppRoute.home, module: HomeModule()),
+        ModularRouter(AppRoute.login, module: LoginModule()),
       ];
 
   @override

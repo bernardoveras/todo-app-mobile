@@ -5,6 +5,7 @@ const primaryColor = const Color(0xFF6C0DDB);
 const accentColor = const Color(0xFF000000);
 const greyColor = const Color(0xFF444444);
 const lightPinkColor = const Color(0xFFCBC2D6);
+const darkPinkColor = const Color(0xFFa292b7);
 
 ThemeData appTheme() {
   return ThemeData(
@@ -46,7 +47,12 @@ ThemeData appTheme() {
     ),
     primaryColor: primaryColor,
     accentColor: accentColor,
+    primaryColorDark: primaryColor,
+    primaryColorLight: primaryColor,
+    cursorColor: primaryColor,
+    textSelectionHandleColor: primaryColor,
     scaffoldBackgroundColor: Color(0xFFFAFAFA),
+    backgroundColor: Color(0xFFFAFAFA),
     splashColor: Colors.transparent,
     highlightColor: Colors.transparent,
   );
