@@ -1,0 +1,67 @@
+import 'package:flutter/material.dart';
+import 'package:todo_app/src/common/components/components.dart';
+
+class HomeItemList extends StatefulWidget {
+  final String title;
+  final DateTime date;
+  final bool isDone;
+
+  const HomeItemList({
+    @required this.title,
+    @required this.date,
+    @required this.isDone,
+  });
+  @override
+  _HomeItemListState createState() => _HomeItemListState();
+}
+
+class _HomeItemListState extends State<HomeItemList> {
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(bottom: 5),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              KaytaCheckBox(
+                value: widget.isDone ?? false,
+                onChanged: (value) {},
+              ),
+              SizedBox(width: 25),
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    widget.title ?? "",
+                    style: TextStyle(
+                      fontFamily: 'InterSemiBold',
+                      color: Colors.black,
+                      fontSize: 20,
+                    ),
+                  ),
+                  SizedBox(height: 2),
+                  Text(
+                    // "03/12/2020, ás 20 horas",
+                    widget.date?.toString() ?? "",
+                    style: TextStyle(
+                      fontFamily: "InterBold",
+                      color: Colors.grey[600],
+                      fontSize: 13,
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+          SizedBox(height: 15),
+          Container(
+            color: Colors.grey[200],
+            height: 2,
+          ),
+        ],
+      ),
+    );
+  }
+}
