@@ -3,6 +3,7 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/common/components/button/button.dart';
 import 'package:todo_app/src/common/components/textfield/search_textfield.dart';
 import 'package:todo_app/src/common/components/textfield/textfield.dart';
+import 'package:todo_app/src/common/widgets/home/nav-bar/home-nav-bar.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
@@ -14,18 +15,16 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
-  //use 'controller' variable to access controller
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[],
+        children: <Widget>[
+          Navbar(),
+          // Body
+        ],
       ),
     );
   }

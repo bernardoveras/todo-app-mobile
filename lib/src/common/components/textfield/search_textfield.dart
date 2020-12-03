@@ -8,6 +8,7 @@ class KaytaSearchTextField extends StatefulWidget {
   final IconData icon;
   final double radius;
   final Color backgroundColor;
+  final double elevation;
 
   const KaytaSearchTextField({
     this.hintText,
@@ -15,6 +16,7 @@ class KaytaSearchTextField extends StatefulWidget {
     this.hintColor = darkPinkColor,
     this.icon = Icons.search_outlined,
     this.radius = 8,
+    this.elevation = 2,
   });
   @override
   _KaytaSearchTextFieldState createState() => _KaytaSearchTextFieldState();
@@ -24,36 +26,40 @@ class _KaytaSearchTextFieldState extends State<KaytaSearchTextField> {
   @override
   Widget build(BuildContext context) {
     return KaytaTextField(
-        decoration: InputDecoration(
-      hintText: widget.hintText,
-      hintStyle: TextStyle(fontFamily: 'InterMedium', color: widget.hintColor),
-      filled: true,
-      fillColor: widget.backgroundColor,
-      prefixIcon: Icon(widget.icon, size: 24),
-      enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(widget.radius),
-        borderSide: BorderSide.none,
+      radius: widget.radius,
+      elevation: widget.elevation,
+      decoration: InputDecoration(
+        hintText: widget.hintText,
+        hintStyle:
+            TextStyle(fontFamily: 'InterMedium', color: widget.hintColor),
+        filled: true,
+        fillColor: widget.backgroundColor,
+        prefixIcon: Icon(widget.icon, size: 24),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.radius),
+          borderSide: BorderSide.none,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.radius),
+          borderSide: BorderSide.none,
+        ),
+        disabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.radius),
+          borderSide: BorderSide.none,
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.radius),
+          borderSide: BorderSide.none,
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.radius),
+          borderSide: BorderSide.none,
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(widget.radius),
+          borderSide: BorderSide.none,
+        ),
       ),
-      border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(widget.radius),
-        borderSide: BorderSide.none,
-      ),
-      disabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(widget.radius),
-        borderSide: BorderSide.none,
-      ),
-      focusedErrorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(widget.radius),
-        borderSide: BorderSide.none,
-      ),
-      errorBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(widget.radius),
-        borderSide: BorderSide.none,
-      ),
-      focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(widget.radius),
-        borderSide: BorderSide.none,
-      ),
-    ));
+    );
   }
 }

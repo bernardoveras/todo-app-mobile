@@ -9,7 +9,7 @@ class AppWidget extends StatelessWidget {
       navigatorKey: Modular.navigatorKey,
       title: 'Todos',
       theme: appTheme(),
-      initialRoute: '/',
+      initialRoute: '/home',
       onGenerateRoute: Modular.generateRoute,
       debugShowCheckedModeBanner: false,
     );
