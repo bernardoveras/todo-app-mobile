@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:date_time_picker/date_time_picker.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
@@ -6,7 +8,18 @@ import 'package:todo_app/src/app_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/common/themes/app.theme.dart';
 
+class MyHttpOverrides extends HttpOverrides {
+  @override
+  HttpClient createHttpClient(SecurityContext context) {
+    HttpClient client = super.createHttpClient(context);
+    client.badCertificateCallback =
+        (X509Certificate cert, String host, int port) => true;
+    return client;
+  }
+}
+
 void main() async {
+  HttpOverrides.global = new MyHttpOverrides();
   SystemChrome.setSystemUIOverlayStyle(
     SystemUiOverlayStyle.dark.copyWith(
         statusBarColor: primaryColor,
