@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/src/common/components/avatar/avatar.dart';
 import 'package:todo_app/src/common/components/textfield/search_textfield.dart';
+import 'package:todo_app/src/data/user.dart';
 
 class Navbar extends StatelessWidget {
   @override
@@ -31,7 +32,7 @@ class Navbar extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  'Bernardo!',
+                  '${user.name}!',
                   style: TextStyle(
                     fontFamily: 'InterBold',
                     color: Colors.white,
@@ -44,7 +45,7 @@ class Navbar extends StatelessWidget {
               right: 0,
               top: 20,
               child: KaytaAvatar(
-                initialString: "B",
+                initialString: "${user.name.substring(0, 1)}",
               ),
             ),
             Positioned(
