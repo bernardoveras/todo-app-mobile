@@ -63,12 +63,14 @@ class KaytaButton extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              image != null
-                  ? Image.asset(
-                      image,
-                      width: iconSize,
-                      color: invertColors ? primaryColor : null,
-                    )
+              busy == false
+                  ? image != null
+                      ? Image.asset(
+                          image,
+                          width: iconSize,
+                          color: invertColors ? primaryColor : null,
+                        )
+                      : SizedBox()
                   : SizedBox(),
               image != null ? SizedBox(width: 10) : SizedBox(),
               busy == false
@@ -83,7 +85,13 @@ class KaytaButton extends StatelessWidget {
                         fontFamily: "InterBold",
                       ),
                     )
-                  : Center(child: CircularProgressIndicator()),
+                  : Center(
+                      child: CircularProgressIndicator(
+                        valueColor: AlwaysStoppedAnimation<Color>(
+                          Theme.of(context).primaryColor,
+                        ),
+                      ),
+                    ),
             ],
           ),
         ),

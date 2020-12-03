@@ -84,7 +84,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                 KaytaButton(
                   "Login com Google",
                   image: "assets/images/google.png",
-                  onTap: () {},
+                  onTap: () {
+                    handleSignIn();
+                  },
                   invertColors: true,
                   busy: busy,
                 ),
