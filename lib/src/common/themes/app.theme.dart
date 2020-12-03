@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 const brightness = Brightness.light;
 const primaryColor = const Color(0xFF6C0DDB);
 const primaryDarkColor = const Color(0xFF480993);
+const primaryLightColor = const Color(0xFF9233ff);
 const accentColor = const Color(0xFF000000);
 const greyColor = const Color(0xFF444444);
 const lightPinkColor = const Color(0xFFCBC2D6);
@@ -11,6 +12,9 @@ const backgroundColor = const Color(0xFFFAFAFA);
 
 ThemeData appTheme() {
   return ThemeData(
+    colorScheme: ColorScheme.light(
+      primary: primaryColor,
+    ),
     brightness: brightness,
     floatingActionButtonTheme: FloatingActionButtonThemeData(
       backgroundColor: primaryColor,

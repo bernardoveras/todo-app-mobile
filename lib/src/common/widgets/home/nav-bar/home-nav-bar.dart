@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/src/common/components/avatar/avatar.dart';
 import 'package:todo_app/src/common/components/textfield/search_textfield.dart';
 
 class Navbar extends StatelessWidget {
@@ -38,6 +39,13 @@ class Navbar extends StatelessWidget {
                   ),
                 ),
               ],
+            ),
+            Positioned(
+              right: 0,
+              top: 20,
+              child: KaytaAvatar(
+                initialString: "B",
+              ),
             ),
             Positioned(
               bottom: -30,

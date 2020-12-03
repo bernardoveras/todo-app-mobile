@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/src/common/components/components.dart';
+import 'package:todo_app/src/common/extensions/date_time_extension.dart';
 
 class HomeItemList extends StatefulWidget {
   final String title;
@@ -44,7 +45,7 @@ class _HomeItemListState extends State<HomeItemList> {
                   SizedBox(height: 2),
                   Text(
                     // "03/12/2020, ás 20 horas",
-                    widget.date?.toString() ?? "",
+                    widget.date.formatar("EEEE, dd/MM/yyyy"),
                     style: TextStyle(
                       fontFamily: "InterBold",
                       color: Colors.grey[600],

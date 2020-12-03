@@ -15,13 +15,14 @@ class KaytaButton extends StatelessWidget {
   final bool disabled;
   final bool outline;
   final bool invertColors;
+  final bool busy;
 
   const KaytaButton(
     this.text, {
     @required this.onTap,
     this.image,
     this.color,
-    this.width = 250,
+    this.width,
     this.iconSize = 24,
     this.onLongPress,
     this.onDoubleTap,
@@ -29,6 +30,7 @@ class KaytaButton extends StatelessWidget {
     this.disabled = false,
     this.outline = false,
     this.invertColors = false,
+    this.busy = false,
   });
 
   @override
@@ -38,6 +40,7 @@ class KaytaButton extends StatelessWidget {
       onLongPress: onLongPress,
       onDoubleTap: onDoubleTap,
       child: Container(
+        width: width,
         decoration: BoxDecoration(
           color: invertColors
               ? Colors.white
@@ -54,7 +57,6 @@ class KaytaButton extends StatelessWidget {
                 )
               : null,
         ),
-        width: width,
         child: Padding(
           padding: EdgeInsets.all(16),
           child: Row(
@@ -69,17 +71,19 @@ class KaytaButton extends StatelessWidget {
                     )
                   : SizedBox(),
               image != null ? SizedBox(width: 10) : SizedBox(),
-              Text(
-                text.toUpperCase(),
-                style: TextStyle(
-                  color: invertColors
-                      ? primaryColor
-                      : outline
-                          ? primaryColor
-                          : Colors.white,
-                  fontFamily: "InterBold",
-                ),
-              ),
+              busy == false
+                  ? Text(
+                      text.toUpperCase(),
+                      style: TextStyle(
+                        color: invertColors
+                            ? primaryColor
+                            : outline
+                                ? primaryColor
+                                : Colors.white,
+                        fontFamily: "InterBold",
+                      ),
+                    )
+                  : Center(child: CircularProgressIndicator()),
             ],
           ),
         ),

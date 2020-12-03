@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/common/components/button/button.dart';
+import 'package:todo_app/src/common/route.dart';
 import 'login_controller.dart';
 
 class LoginPage extends StatefulWidget {
@@ -13,10 +14,39 @@ class LoginPage extends StatefulWidget {
 
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
   //use 'controller' variable to access controller
+  final scaffoldKey = new GlobalKey<ScaffoldState>();
+  var busy = false;
+
+  handleSignIn() {
+    setState(() {
+      busy = true;
+    });
+    controller
+        .loginWithGoogle()
+        .then((data) => onSuccess())
+        .catchError((error) => onError())
+        .whenComplete(() => onComplete());
+  }
+
+  onSuccess() {
+    Modular.to.pushNamedAndRemoveUntil(AppRoute.home, (v) => true);
+  }
+
+  onError() {
+    var snackbar = new SnackBar(content: Text("Falha no login"));
+    scaffoldKey.currentState.showSnackBar(snackbar);
+  }
+
+  onComplete() {
+    setState(() {
+      busy = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Theme.of(context).primaryColor,
       body: SingleChildScrollView(
         child: Padding(
@@ -50,12 +80,13 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
                     ),
                   ],
                 ),
-                SizedBox(height: 100),
+                SizedBox(height: 30),
                 KaytaButton(
                   "Login com Google",
                   image: "assets/images/google.png",
                   onTap: () {},
                   invertColors: true,
+                  busy: busy,
                 ),
               ],
             ),
