@@ -24,6 +24,7 @@ abstract class _LoginControllerBase with Store {
         (await _auth.signInWithCredential(credential)).user;
 
     var token = await firebaseUser.getIdToken();
+    print(token);
 
     user.name = firebaseUser.displayName;
     user.email = firebaseUser.email;

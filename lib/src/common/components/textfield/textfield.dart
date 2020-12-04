@@ -19,10 +19,12 @@ class KaytaTextField extends StatefulWidget {
   final bool obscure; // false
   final bool showObscureIcon; // true
   final String Function(String) validator;
+  final Function(String) onChanged;
   final double radius; // 8
   final double elevation; // 2
 
   const KaytaTextField({
+    this.onChanged,
     this.labelText,
     this.labelStyle,
     this.hintText,
@@ -66,6 +68,7 @@ class _KaytaTextFieldState extends State<KaytaTextField> {
       borderRadius: BorderRadius.circular(widget.radius),
       elevation: widget.elevation,
       child: TextFormField(
+        onChanged: widget.onChanged,
         validator: widget.validator,
         autofocus: widget.autofocus,
         initialValue: widget.initialValue,

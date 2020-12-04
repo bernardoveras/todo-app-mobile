@@ -4,6 +4,8 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/common/components/components.dart';
 import 'package:todo_app/src/common/components/textfield/date_time_text_field.dart';
 import 'package:todo_app/src/common/themes/app.theme.dart';
+import 'package:todo_app/src/domain/entities/todo.dart';
+import 'package:todo_app/src/presentation/home/home_controller.dart';
 import 'create_todo_controller.dart';
 
 class CreateTodoPage extends StatefulWidget {
@@ -51,6 +53,7 @@ class _CreateTodoPageState
                     elevation: 0,
                     labelText: "O que você está planejando?",
                     autofocus: true,
+                    onChanged: controller.setTitle,
                   ),
                   SizedBox(height: 25),
                   KaytaDateTimeTextField(
@@ -60,8 +63,8 @@ class _CreateTodoPageState
                     dateLabelText: 'Para quando?',
                     dateHintText: "DateHintText",
                     calendarTitle: "Para quando?",
-                    onChanged: (val) => print(val),
-                    onSaved: (val) => print(val),
+                    onChanged: (val) => controller.setDate(val),
+                    onSaved: (val) => controller.setDate(val),
                     labelText: "Pra quando está planejando?",
                     hintText: "Pra quando está planejando?",
                   ),

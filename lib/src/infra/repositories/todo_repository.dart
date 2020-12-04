@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/common/user.dart';
@@ -48,7 +47,7 @@ class TodoRepository implements ITodoRepository {
 }
 
 Future<Response> get(String endPoint) async {
-  var url = 'https://10.0.2.2:5001/$endPoint';
+  var url = 'https://192.168.1.133:5001/$endPoint';
   Response response = await Dio().get(
     url,
     options: Options(

@@ -22,17 +22,13 @@ abstract class _HomeControllerBase with Store {
   ObservableList<Todo> allTodos = new ObservableList<Todo>();
 
   void getAll() async {
-    var todayTodosList = await _repository.getTodayTodos();
-    var tomorrowTodosList = await _repository.getTomorrowTodos();
-    var allTodosList = await _repository.getAllTodos();
+    // var todayTodosList = await _repository.getTodayTodos();
+    // var tomorrowTodosList = await _repository.getTomorrowTodos();
+    // var allTodosList = await _repository.getAllTodos();
 
-    allTodos = allTodosList.asObservable();
-    tomorrowTodos = tomorrowTodosList.asObservable();
-    todayTodos = todayTodosList.asObservable();
-  }
-
-  Future addItem(Todo item) async {
-    await _repository.add(item);
+    // allTodos = allTodosList.asObservable();
+    // tomorrowTodos = tomorrowTodosList.asObservable();
+    // todayTodos = todayTodosList.asObservable();
   }
 
   Future markAsDone(Todo item) async {

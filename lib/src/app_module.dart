@@ -1,10 +1,9 @@
-import 'package:animations/animations.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app/src/app_widget.dart';
-import 'package:todo_app/src/presentation/create_todo/create_todo_module.dart';
 import 'package:todo_app/src/presentation/login/login_module.dart';
 import 'common/route.dart';
+import 'presentation/create_todo/create_todo_page.dart';
 import 'presentation/home/home_module.dart';
 
 class AppModule extends MainModule {
@@ -15,7 +14,10 @@ class AppModule extends MainModule {
   List<ModularRouter> get routers => [
         ModularRouter(AppRoute.home, module: HomeModule()),
         ModularRouter(AppRoute.login, module: LoginModule()),
-        ModularRouter(AppRoute.createTodo, module: CreateTodoModule()),
+        ModularRouter(
+          AppRoute.createTodo,
+          child: (context, args) => CreateTodoPage(),
+        ),
       ];
 
   @override

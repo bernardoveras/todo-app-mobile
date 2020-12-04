@@ -13,7 +13,7 @@ class KaytaDateTimeTextField extends StatefulWidget {
   final String confirmText;
   final String dateMask;
   final Locale locale;
-  final Function(String) onChanged;
+  final Function(DateTime) onChanged;
   final dynamic validator;
   final InputDecoration decoration;
   final TextStyle errorStyle;
@@ -21,7 +21,7 @@ class KaytaDateTimeTextField extends StatefulWidget {
   final String labelText;
   final TextStyle hintStyle;
   final String hintText;
-  final Function(String) onSaved;
+  final Function(DateTime) onSaved;
 
   const KaytaDateTimeTextField({
     this.initialValue,
@@ -63,9 +63,15 @@ class _KaytaDateTimeTextFieldState extends State<KaytaDateTimeTextField> {
       confirmText: widget.confirmText,
       dateMask: widget.dateMask ?? "d 'de' MMMM, yyyy",
       locale: widget.locale ?? Locale('pt', 'BR'),
-      onChanged: widget.onChanged,
+      onChanged: (value) {
+        DateTime date = DateTime.parse(value);
+        widget.onChanged(date);
+      },
       validator: widget.validator,
-      onSaved: widget.onSaved,
+      onSaved: (value) {
+        DateTime date = DateTime.parse(value);
+        widget.onSaved(date);
+      },
       decoration: widget.decoration ??
           InputDecoration(
             focusedBorder: OutlineInputBorder(

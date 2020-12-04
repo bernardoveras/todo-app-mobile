@@ -3,10 +3,10 @@ import 'package:todo_app/src/common/extensions/date_time_extension.dart';
 class Todo {
   String id;
   String title;
+  DateTime date;
   bool done;
   bool important;
-  DateTime date;
-  Todo({this.id, this.title, this.done, this.important});
+  Todo({this.id, this.title, this.done, this.important, this.date});
 
   Todo.fromJson(Map<String, dynamic> json) {
     id = json["id"];
