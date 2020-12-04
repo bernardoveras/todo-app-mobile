@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:todo_app/src/domain/entities/todo.dart';
 import 'home-todo-list.dart';
 
 class HomeList extends StatelessWidget {
+  final List<Todo> allTodos;
+  final List<Todo> todayTodos;
+  final List<Todo> tomorrowTodos;
+
+  const HomeList({
+    @required this.todayTodos,
+    @required this.tomorrowTodos,
+    @required this.allTodos,
+  });
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -38,9 +49,9 @@ class HomeList extends StatelessWidget {
               child: TabBarView(
                 physics: BouncingScrollPhysics(),
                 children: [
-                  HomeTodoList(),
-                  HomeTodoList(),
-                  HomeTodoList(),
+                  HomeTodoList(todayTodos),
+                  HomeTodoList(tomorrowTodos),
+                  HomeTodoList(allTodos),
                 ],
               ),
             ),

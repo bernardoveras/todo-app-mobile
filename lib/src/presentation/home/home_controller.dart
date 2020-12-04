@@ -1,6 +1,7 @@
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/domain/entities/todo.dart';
+import 'package:todo_app/src/infra/interfaces/i_todo_repository.dart';
 
 part 'home_controller.g.dart';
 
@@ -8,8 +9,34 @@ part 'home_controller.g.dart';
 class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
-  @observable
-  ObservableList<Todo> todos = new ObservableList<Todo>();
+  ITodoRepository _repository;
 
-  void addTodo(Todo todo) {}
+  _HomeControllerBase(ITodoRepository repository) {
+    _repository = repository;
+  }
+
+  @observable
+  ObservableList<Todo> todayTodos = new ObservableList<Todo>();
+  ObservableList<Todo> tomorrowTodos = new ObservableList<Todo>();
+  ObservableList<Todo> allTodos = new ObservableList<Todo>();
+
+  void getToday() async {
+    var result = await _repository.getTodayTodos();
+    todayTodos = result.asObservable();
+  }
+
+  void getTomorrow() async {
+    var result = await _repository.getTomorrowTodos();
+    tomorrowTodos = result.asObservable();
+  }
+
+  void getAll() async {
+    var todayTodosList = await _repository.getTodayTodos();
+    var tomorrowTodosList = await _repository.getTomorrowTodos();
+    var allTodosList = await _repository.getAllTodos();
+
+    allTodos = allTodosList.asObservable();
+    tomorrowTodos = tomorrowTodosList.asObservable();
+    todayTodos = todayTodosList.asObservable();
+  }
 }

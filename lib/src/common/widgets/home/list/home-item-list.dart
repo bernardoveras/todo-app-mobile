@@ -6,11 +6,13 @@ class HomeItemList extends StatefulWidget {
   final String title;
   final DateTime date;
   final bool isDone;
+  final Function(bool) changeDone;
 
   const HomeItemList({
     @required this.title,
     @required this.date,
     @required this.isDone,
+    @required this.changeDone,
   });
   @override
   _HomeItemListState createState() => _HomeItemListState();
@@ -44,7 +46,6 @@ class _HomeItemListState extends State<HomeItemList> {
                   ),
                   SizedBox(height: 2),
                   Text(
-                    // "03/12/2020, ás 20 horas",
                     widget.date.formatar("EEEE, dd/MM/yyyy"),
                     style: TextStyle(
                       fontFamily: "InterBold",

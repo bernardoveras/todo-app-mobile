@@ -15,13 +15,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends ModularState<HomePage, HomeController>
     with TickerProviderStateMixin {
   bool isCheck = false;
-  TabController tabController;
-
-  @override
-  void initState() {
-    tabController = TabController(length: 3, vsync: this, initialIndex: 0);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +38,11 @@ class _HomePageState extends ModularState<HomePage, HomeController>
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             Navbar(),
-            HomeList(),
+            HomeList(
+              todayTodos: controller.todayTodos,
+              allTodos: controller.allTodos,
+              tomorrowTodos: controller.tomorrowTodos,
+            ),
           ],
         ),
       ),

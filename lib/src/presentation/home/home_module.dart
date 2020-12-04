@@ -1,3 +1,4 @@
+import 'package:todo_app/src/infra/repositories/todo_repository.dart';
 import 'package:todo_app/src/presentation/create_todo/create_todo_controller.dart';
 
 import 'home_controller.dart';
@@ -10,6 +11,7 @@ class HomeModule extends ChildModule {
   List<Bind> get binds => [
         $HomeController,
         $CreateTodoController,
+        $TodoRepository,
       ];
 
   @override
