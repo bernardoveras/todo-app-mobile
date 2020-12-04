@@ -23,11 +23,11 @@ abstract class _HomeControllerBase with Store {
 
   void getAll() async {
     var todayTodosList = await _repository.getTodayTodos();
-    // var tomorrowTodosList = await _repository.getTomorrowTodos();
-    // var allTodosList = await _repository.getAllTodos();
+    var tomorrowTodosList = await _repository.getTomorrowTodos();
+    var allTodosList = await _repository.getAllTodos();
 
-    // allTodos = allTodosList.asObservable();
-    // tomorrowTodos = tomorrowTodosList.asObservable();
+    allTodos = allTodosList.asObservable();
+    tomorrowTodos = tomorrowTodosList.asObservable();
     todayTodos = todayTodosList.asObservable();
   }
 }
