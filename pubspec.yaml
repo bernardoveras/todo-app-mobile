@@ -37,8 +37,8 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/notification.png
     - assets/images/google.png
+    - assets/images/empty.png
 
   fonts:
     - family: "InterLight"
