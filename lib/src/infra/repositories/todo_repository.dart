@@ -35,7 +35,7 @@ class TodoRepository implements ITodoRepository {
   }
 
   @override
-  Future<Todo> maskAsDone(Todo item) async {
+  Future<Todo> markAsDone(Todo item) async {
     Response response = await post("v1/todos/mark-as-done", item);
     return Todo.fromJson(response.data["data"]);
   }

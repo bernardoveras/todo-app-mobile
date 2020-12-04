@@ -5,5 +5,5 @@ abstract class ITodoRepository {
   Future<List<Todo>> getTomorrowTodos();
   Future<List<Todo>> getAllTodos();
   Future<Todo> add(Todo item);
-  Future<Todo> maskAsDone(Todo item);
+  Future<Todo> markAsDone(Todo item);
 }

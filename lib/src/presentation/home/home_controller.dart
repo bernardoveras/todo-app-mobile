@@ -30,4 +30,12 @@ abstract class _HomeControllerBase with Store {
     tomorrowTodos = tomorrowTodosList.asObservable();
     todayTodos = todayTodosList.asObservable();
   }
+
+  Future addItem(Todo item) async {
+    await _repository.add(item);
+  }
+
+  Future markAsDone(Todo item) async {
+    await _repository.markAsDone(item);
+  }
 }
