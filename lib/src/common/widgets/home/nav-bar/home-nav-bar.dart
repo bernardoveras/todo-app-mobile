@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/src/common/components/avatar/avatar.dart';
 import 'package:todo_app/src/common/components/textfield/search_textfield.dart';
-import 'package:todo_app/src/data/user.dart';
+import 'package:todo_app/src/common/user.dart';
 
 class Navbar extends StatelessWidget {
   @override

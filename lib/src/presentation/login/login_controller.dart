@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:todo_app/src/data/user.dart';
+import 'package:todo_app/src/common/user.dart';
 part 'login_controller.g.dart';
 
 @Injectable()
