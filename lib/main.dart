@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:todo_app/src/app_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/common/themes/app.theme.dart';
+import 'package:todo_app/src/infra/services/storage.dart';
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -26,8 +27,11 @@ void main() async {
         statusBarIconBrightness: Brightness.light,
         statusBarBrightness: Brightness.dark),
   );
+
   WidgetsFlutterBinding.ensureInitialized();
   Intl.defaultLocale = "pt_BR";
+
+  await Storage.load();
   await Firebase.initializeApp();
 
   runApp(ModularApp(module: AppModule()));

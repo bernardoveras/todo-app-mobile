@@ -1,8 +1,12 @@
+import 'dart:convert';
+
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:todo_app/src/common/user.dart';
+import 'package:todo_app/src/infra/services/storage.dart';
 part 'login_controller.g.dart';
 
 @Injectable()
@@ -24,12 +28,14 @@ abstract class _LoginControllerBase with Store {
         (await _auth.signInWithCredential(credential)).user;
 
     var token = await firebaseUser.getIdToken();
-    print(token);
 
     user.name = firebaseUser.displayName;
     user.email = firebaseUser.email;
     user.picture = firebaseUser.photoURL;
     user.token = token;
+
+    var userJson = jsonEncode(user.toJson());
+    if (userJson != null) Storage.setString("user_credentials", userJson);
   }
 
   Future logout() async {

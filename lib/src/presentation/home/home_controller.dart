@@ -13,7 +13,7 @@ abstract class _HomeControllerBase with Store {
 
   _HomeControllerBase(ITodoRepository repository) {
     _repository = repository;
-    getAll();
+    // getAll();
   }
 
   @observable

@@ -45,7 +45,8 @@ class Navbar extends StatelessWidget {
               right: 0,
               top: 20,
               child: KaytaAvatar(
-                initialString: "${user.name.substring(0, 1)}",
+                path: user.picture,
+                initialString: "${user.name?.substring(0, 1)}",
               ),
             ),
             Positioned(

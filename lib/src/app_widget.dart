@@ -12,7 +12,7 @@ class AppWidget extends StatelessWidget {
       navigatorKey: Modular.navigatorKey,
       title: 'Todos',
       theme: appTheme(),
-      initialRoute: AppRoute.login,
+      initialRoute: AppRoute.splashScreen,
       onGenerateRoute: Modular.generateRoute,
       debugShowCheckedModeBanner: false,
       localizationsDelegates: [

@@ -35,6 +35,9 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
   onError() {
     var snackbar = new SnackBar(content: Text("Falha no login"));
     scaffoldKey.currentState.showSnackBar(snackbar);
+    setState(() {
+      busy = false;
+    });
   }
 
   onComplete() {
