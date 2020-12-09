@@ -24,7 +24,8 @@ class _HomePageState extends ModularState<HomePage, HomeController>
         resizeToAvoidBottomInset: true,
         floatingActionButton: FloatingActionButton(
           child: Icon(Icons.add),
-          onPressed: () {
+          onPressed: () async {
+            FocusScope.of(context).unfocus();
             showMaterialModalBottomSheet(
               context: context,
               builder: (_) => CreateTodoPage(),
