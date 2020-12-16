@@ -3,6 +3,8 @@ import 'package:todo_app/src/domain/login/entities/logged_user_info.dart';
 import 'package:todo_app/src/domain/shared/errors.dart';
 
 abstract class LoginRepository {
+  Future<Either<Failure, LoggedUserInfo>> loginEmail(
+      {String email, String password});
   Future<Either<Failure, LoggedUserInfo>> loggedUser();
   Future<Either<Failure, Unit>> logout();
 }
