@@ -1,7 +1,7 @@
 import 'package:mobx/mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/domain/todo/entities/todo.dart';
-import 'package:todo_app/src/infra/interfaces/i_todo_repository.dart';
+import 'package:todo_app/src/infra/todo/interfaces/i_todo_repository.dart';
 
 part 'home_controller.g.dart';
 

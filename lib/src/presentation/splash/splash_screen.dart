@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/common/route.dart';
-import 'package:todo_app/src/infra/services/authentication.dart';
+import 'package:todo_app/src/infra/shared/services/authentication.dart';
 
 class SplashScreenPage extends StatefulWidget {
   @override

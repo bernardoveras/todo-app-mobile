@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:todo_app/src/common/user.dart';
-import 'package:todo_app/src/infra/services/storage.dart';
+import 'package:todo_app/src/infra/shared/services/storage.dart';
 
 abstract class Authentication {
   static IUser loadUser() {
