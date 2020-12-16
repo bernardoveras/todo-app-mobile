@@ -38,9 +38,7 @@ class _ScaleTapState extends State<ScaleOnTap>
   void initState() {
     super.initState();
 
-    _animationController = AnimationController(
-      vsync: this,
-    );
+    _animationController = AnimationController(vsync: this);
     _scale = Tween<double>(
       begin: 1.0,
       end: 1.0,
