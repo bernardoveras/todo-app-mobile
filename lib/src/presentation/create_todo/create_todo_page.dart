@@ -1,11 +1,7 @@
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:todo_app/src/common/components/components.dart';
 import 'package:todo_app/src/common/components/textfield/date_time_text_field.dart';
-import 'package:todo_app/src/common/themes/app.theme.dart';
-import 'package:todo_app/src/domain/entities/todo.dart';
-import 'package:todo_app/src/presentation/home/home_controller.dart';
 import 'create_todo_controller.dart';
 
 class CreateTodoPage extends StatefulWidget {
