@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:todo_app/src/domain/entities/todo.dart';
+import 'package:todo_app/src/domain/todo/entities/todo.dart';
 import 'home-todo-list.dart';
 
 class HomeList extends StatelessWidget {

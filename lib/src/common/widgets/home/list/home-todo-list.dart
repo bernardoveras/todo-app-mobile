@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todo_app/src/common/route.dart';
-import 'package:todo_app/src/domain/entities/todo.dart';
+import 'package:todo_app/src/domain/todo/entities/todo.dart';
 import 'home-item-list.dart';
 
 class HomeTodoList extends StatelessWidget {

@@ -1,4 +1,4 @@
-import 'package:todo_app/src/domain/entities/todo.dart';
+import 'package:todo_app/src/domain/todo/entities/todo.dart';
 
 abstract class ITodoRepository {
   Future<List<Todo>> getTodayTodos();

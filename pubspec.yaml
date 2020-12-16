@@ -9,6 +9,8 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  equatable: ^1.2.5
+  string_validator: ^0.1.4
   shared_preferences: ^0.5.12+4
   google_sign_in: ^4.5.6
   firebase_auth: ^0.18.4
